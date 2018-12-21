@@ -51,7 +51,7 @@ class RefreshTokenGrant extends AbstractGrant
     /**
      * {@inheritdoc}
      */
-    protected function getIdentifier()
+    public function getIdentifier()
     {
         return self::GRANT_TYPE_REFRESH_TOKEN;
     }

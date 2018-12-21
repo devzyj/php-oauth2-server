@@ -35,7 +35,7 @@ class ImplicitAuthorize extends AbstractAuthorize
     /**
      * {@inheritdoc}
      */
-    protected function getIdentifier()
+    public function getIdentifier()
     {
         return self::AUTHORIZE_TYPE_TOKEN;
     }
@@ -43,7 +43,7 @@ class ImplicitAuthorize extends AbstractAuthorize
     /**
      * {@inheritdoc}
      */
-    protected function getGrantIdentifier()
+    public function getGrantIdentifier()
     {
         return self::GRANT_TYPE_IMPLICIT;
     }

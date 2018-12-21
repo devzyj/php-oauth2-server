@@ -45,7 +45,7 @@ class OAuthServerException extends \Exception
      */
     public function getHttpStatusCode()
     {
-        return $this->httpStatusCode;
+        return $this->_httpStatusCode;
     }
     
     /**

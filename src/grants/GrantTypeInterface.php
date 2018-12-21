@@ -21,7 +21,7 @@ interface GrantTypeInterface
      * 
      * @return string 授予标识。
      */
-    protected function getIdentifier();
+    public function getIdentifier();
 
     /**
      * 是否可以运行权限授予。

@@ -37,7 +37,7 @@ class ClientCredentialsGrant extends AbstractGrant
     /**
      * {@inheritdoc}
      */
-    protected function getIdentifier()
+    public function getIdentifier()
     {
         return self::GRANT_TYPE_CLIENT_CREDENTIALS;
     }

@@ -98,7 +98,7 @@ class AuthorizationCodeGrant extends AbstractGrant
     /**
      * {@inheritdoc}
      */
-    protected function getIdentifier()
+    public function getIdentifier()
     {
         return self::GRANT_TYPE_AUTHORIZATION_CODE;
     }

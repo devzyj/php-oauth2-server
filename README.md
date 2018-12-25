@@ -18,8 +18,8 @@ or add
 # Usage
 
 - [Authorization Code](docs/authorization_code.md)
-- [Implicit](https://github.com/devzyj/php-oauth2-server/docs/implicit.md)
-- [Password](https://github.com/devzyj/php-oauth2-server/docs/password.md)
-- [Client Credentials](https://github.com/devzyj/php-oauth2-server/docs/client_credentials.md)
-- [Refresh Token](https://github.com/devzyj/php-oauth2-server/docs/refresh_token.md)
-- [Validate Access Token](https://github.com/devzyj/php-oauth2-server/docs/validate_access_token.md)
+- [Implicit](docs/implicit.md)
+- [Password](docs/password.md)
+- [Client Credentials](docs/client_credentials.md)
+- [Refresh Token](docs/refresh_token.md)
+- [Validate Access Token](docs/validate_access_token.md)

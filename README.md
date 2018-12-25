@@ -17,7 +17,7 @@ or add
 
 # Usage
 
-- [Authorization Code](https://github.com/devzyj/php-oauth2-server/docs/authorization_code.md)
+- [Authorization Code](docs/authorization_code.md)
 - [Implicit](https://github.com/devzyj/php-oauth2-server/docs/implicit.md)
 - [Password](https://github.com/devzyj/php-oauth2-server/docs/password.md)
 - [Client Credentials](https://github.com/devzyj/php-oauth2-server/docs/client_credentials.md)

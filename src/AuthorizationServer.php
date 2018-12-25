@@ -234,7 +234,7 @@ class AuthorizationServer extends BaseObject
             ]);
         }
         
-        $this->_grantTypes[$authorizeType->getIdentifier()] = $authorizeType;
+        $this->_authorizeTypes[$authorizeType->getIdentifier()] = $authorizeType;
     }
     
     /**

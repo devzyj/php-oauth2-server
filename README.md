@@ -52,6 +52,7 @@ $authorizationServer->addAuthorizeType(new ImplicitAuthorize());
 
 try {
     // 获取并验证授权请求。
+    // $request 不强制要求实现 ServerRequestInterface 接口，只需要实例中包函接口中的方法。
     $authorizeRequest = $authorizationServer->getAuthorizeRequest($request);
     
     // 设置授权的用户。
@@ -123,6 +124,7 @@ $authorizationServer->addGrantType(new RefreshTokenGrant());
 
 try {
     // 运行并返回授予的认证信息。
+    // $request 不强制要求实现 ServerRequestInterface 接口，只需要实例中包函接口中的方法。
     $credentials = $authorizationServer->runGrantTypes($request);
 } catch (OAuthServerException $e) {
     $e->getHttpStatusCode();
@@ -143,3 +145,32 @@ echo json_encode($credentials);
 - [Client Credentials](docs/client_credentials.md)
 - [Refresh Token](docs/refresh_token.md)
 - [Validate Access Token](docs/validate_access_token.md)
+
+# Interfaces
+
+需要实现的接口。
+
+- devzyj\oauth2\server\interfaces\AccessTokenEntityInterface
+- devzyj\oauth2\server\interfaces\AccessTokenRepositoryInterface
+- devzyj\oauth2\server\interfaces\AuthorizationCodeEntityInterface
+- devzyj\oauth2\server\interfaces\AuthorizationCodeRepositoryInterface
+- devzyj\oauth2\server\interfaces\ClientEntityInterface
+- devzyj\oauth2\server\interfaces\ClientRepositoryInterface
+- devzyj\oauth2\server\interfaces\RefreshTokenEntityInterface
+- devzyj\oauth2\server\interfaces\RefreshTokenRepositoryInterface
+- devzyj\oauth2\server\interfaces\ScopeEntityInterface
+- devzyj\oauth2\server\interfaces\ScopeRepositoryInterface
+- devzyj\oauth2\server\interfaces\UserEntityInterface
+- devzyj\oauth2\server\interfaces\UserRepositoryInterface
+- devzyj\oauth2\server\interfaces\ServerRequestInterface 不强制要求实现该接口，只需要实例中包函接口中的方法。
+
+# Traits
+
+实现了接口中的一些方法。
+
+- devzyj\oauth2\server\traits\AccessTokenEntityTrait
+- devzyj\oauth2\server\traits\AccessTokenRepositoryTrait
+- devzyj\oauth2\server\traits\AuthorizationCodeEntityTrait
+- devzyj\oauth2\server\traits\AuthorizationCodeRepositoryTrait
+- devzyj\oauth2\server\traits\RefreshTokenEntityTrait
+- devzyj\oauth2\server\traits\RefreshTokenRepositoryTrait

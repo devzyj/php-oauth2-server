@@ -73,13 +73,13 @@ $authorizationServer = new AuthorizationServer([
         'passphrase' => null, // 访问令牌的私钥密码。没有密码可以为 `null`。
     ],
     //'accessTokenCryptKey' => 'string key', // 访问令牌的字符串密钥。
-    ‘authorizationCodeCryptKey’ => [
+    'authorizationCodeCryptKey' => [
         'ascii' => 'def0000086937b.....', // 使用 `vendor/bin/generate-defuse-key` 生成的字符串。
         //'path' => '/path/to/asciiFile', // 保存了 `vendor/bin/generate-defuse-key` 生成的字符串的文件路径。
         //'password' => 'string key', // 字符串密钥。
     ],
     'refreshTokenDuration' => 2592000, // 访问令牌持续 30 天。
-    ‘refreshTokenCryptKey’ => [
+    'refreshTokenCryptKey' => [
         'ascii' => 'def0000086937b.....', // 使用 `vendor/bin/generate-defuse-key` 生成的字符串。
         //'path' => '/path/to/asciiFile', // 保存了 `vendor/bin/generate-defuse-key` 生成的字符串的文件路径。
         //'password' => 'string key', // 字符串密钥。

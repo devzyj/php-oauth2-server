@@ -34,6 +34,10 @@ abstract class AbstractAuthorize extends AbstractAuthorizeGrant implements Autho
         }
         
         $responseType = $this->getRequestQueryParam($request, 'response_type');
+        if ($responseType === null) {
+            throw new BadRequestException('Missing parameters: `response_type` required.');
+        }
+        
         return $this->getIdentifier() === $responseType;
     }
 

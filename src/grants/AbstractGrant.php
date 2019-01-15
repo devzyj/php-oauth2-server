@@ -33,6 +33,10 @@ abstract class AbstractGrant extends AbstractAuthorizeGrant implements GrantType
         }
         
         $grantType = $this->getRequestBodyParam($request, 'grant_type');
+        if ($grantType === null) {
+            throw new BadRequestException('Missing parameters: `grant_type` required.');
+        }
+        
         return $this->getIdentifier() === $grantType;
     }
 

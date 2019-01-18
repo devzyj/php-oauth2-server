@@ -23,9 +23,8 @@ interface UserEntityInterface
     
     /**
      * 获取用户的默认权限。
-     * 
      * 只对 `password` 授予模式生效。
-     * 优选使用方法的返回值，如果返回值不是数组，则使用全局的默认权限。
+     * 优先使用方法的返回值，如果返回值不是数组，则使用全局的默认权限。
      *
      * @return ScopeEntityInterface[]
      */

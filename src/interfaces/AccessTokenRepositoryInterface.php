@@ -64,7 +64,7 @@ interface AccessTokenRepositoryInterface
     
     /**
      * 反序列化访问令牌，用于从请求中接收到的访问令牌。
-     *
+     * 
      * 返回的实例必需要设置的属性如下：
      *     - [[setIdentifier()]]
      *     - [[setExpires()]]

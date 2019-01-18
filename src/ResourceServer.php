@@ -154,6 +154,10 @@ class ResourceServer extends BaseObject
     public function getValidator()
     {
         if ($this->_validator === null) {
+            if ($this->getAccessTokenRepository() === null) {
+                throw new \LogicException('The `accessTokenRepository` property must be set.');
+            }
+            
             $this->_validator = new AuthorizationValidator([
                 'accessTokenRepository' => $this->getAccessTokenRepository(),
                 'accessTokenCryptKey' => $this->getAccessTokenCryptKey(),
@@ -162,18 +166,6 @@ class ResourceServer extends BaseObject
         }
     
         return $this->_validator;
-    }
-    
-    /**
-     * {@inheritdoc}
-     */
-    public function init()
-    {
-        parent::init();
-    
-        if ($this->getAccessTokenRepository() === null) {
-            throw new \LogicException('The `accessTokenRepository` property must be set.');
-        }
     }
     
     /**

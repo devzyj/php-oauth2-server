@@ -10,8 +10,8 @@ $resourceServer = new ResourceServer([
     'accessTokenRepository' => new AccessTokenRepository(), // AccessTokenRepositoryInterface 实例。
     'accessTokenCryptKey' => [
         'publicKey' => '/path/to/publicKey' // 访问令牌的公钥路径。
+        //'signKey' => 'sign key', // 字符串签名密钥。
     ],
-    //'accessTokenCryptKey' => 'string key', // 访问令牌的字符串密钥。
     //'accessTokenQueryParam' => 'access-token', // 只在 [[validateServerRequest()]] 中有效。
 ]);
 

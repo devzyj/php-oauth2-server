@@ -36,8 +36,8 @@ $authorizationServer = new AuthorizationServer([
     'accessTokenCryptKey' => [
         'privateKey' => '/path/to/privateKey', // 访问令牌的私钥路径。
         'passphrase' => null, // 访问令牌的私钥密码。没有密码可以为 `null`。
+        //'signKey' => 'sign key', // 字符串签名密钥。
     ],
-    //'accessTokenCryptKey' => 'string key', // 访问令牌的字符串密钥。
     'authorizationCodeDuration' => 600, // 授权码持续 10 分钟。
     'authorizationCodeCryptKey' => [
         'ascii' => 'def0000086937b.....', // 使用 `vendor/bin/generate-defuse-key` 生成的字符串。
@@ -101,8 +101,8 @@ $authorizationServer = new AuthorizationServer([
     'accessTokenCryptKey' => [
         'privateKey' => '/path/to/privateKey', // 访问令牌的私钥路径。
         'passphrase' => null, // 访问令牌的私钥密码。没有密码可以为 `null`。
+        //'signKey' => 'sign key', // 字符串签名密钥。
     ],
-    //'accessTokenCryptKey' => 'string key', // 访问令牌的字符串密钥。
     'authorizationCodeCryptKey' => [
         'ascii' => 'def0000086937b.....', // 使用 `vendor/bin/generate-defuse-key` 生成的字符串。
         //'path' => '/path/to/asciiFile', // 保存了 `vendor/bin/generate-defuse-key` 生成的字符串的文件路径。

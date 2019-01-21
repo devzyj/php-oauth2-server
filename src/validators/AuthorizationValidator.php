@@ -24,8 +24,8 @@ use devzyj\oauth2\server\exceptions\InvalidAccessTokenException;
  *     'accessTokenRepository' => new AccessTokenRepository(),
  *     'accessTokenCryptKey' => [
  *         'publicKey' => '/path/to/publicKey' // 公钥路径。
+ *         //'signKey' => 'sign key', // 字符串签名密钥。
  *     ],
- *     //'accessTokenCryptKey' => 'string key', // 字符串密钥。
  *     //'accessTokenQueryParam' => 'access-token', // 只在 [[validateServerRequest()]] 中有效。
  * ]);
  * ```

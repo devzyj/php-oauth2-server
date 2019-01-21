@@ -30,6 +30,7 @@ trait AccessTokenRepositoryTrait
      * @param string|array $cryptKey 访问令牌密钥。可以是字符串密钥，或者包括以下二个元素的数组：
      *     - privateKey 私钥路径。
      *     - passphrase 私钥密码。没有密码可以为 `null`。
+     *     - signKey 字符串签名密钥。
      * @return string 序列化的访问令牌。
      */
     public function serializeAccessTokenEntity(AccessTokenEntityInterface $accessTokenEntity, $cryptKey)
@@ -50,17 +51,18 @@ trait AccessTokenRepositoryTrait
             ->setExpiration($accessTokenEntity->getExpires())
             ->set('scopes', $scopes);
         
-        if ($cryptKey && is_string($cryptKey)) {
-            $signAlg = JwtHelper::SIGN_ALG_HS256;
-            $signKey = $cryptKey;
-        } elseif (isset($cryptKey['privateKey'])) {
+        if (isset($cryptKey['privateKey'])) {
             $path = ArrayHelper::getValue($cryptKey, 'privateKey');
             $passphrase = ArrayHelper::getValue($cryptKey, 'passphrase');
-            $signAlg = JwtHelper::SIGN_ALG_RS256;
-            $signKey = [$path, $passphrase];
+
+            $builder = JwtHelper::sign($builder, JwtHelper::SIGN_ALG_RS256, [$path, $passphrase]);
+        } elseif (isset($cryptKey['signKey'])) {
+            $signAlg = JwtHelper::SIGN_ALG_HS256;
+            $signKey = ArrayHelper::getValue($cryptKey, 'signKey');
+
+            $builder = JwtHelper::sign($builder, JwtHelper::SIGN_ALG_HS256, $signKey);
         }
         
-        $builder = JwtHelper::sign($builder, $signAlg, $signKey);
         return (string) $builder->getToken();
     }
 
@@ -77,6 +79,7 @@ trait AccessTokenRepositoryTrait
      * @param string $serializedAccessToken 已序列化的访问令牌。
      * @param string|array $cryptKey 访问令牌密钥。可以是字符串密钥，或者包括以下一个元素的数组：
      *     - publicKey 公钥路径。
+     *     - signKey 字符串签名密钥。
      * @return AccessTokenEntityInterface 访问令牌实例。
      * @throws InvalidAccessTokenException 访问令牌无效。
      * @throws ServerErrorException 解析 JSON 数据错误。
@@ -89,9 +92,9 @@ trait AccessTokenRepositoryTrait
 
             // 签名密钥。
             if (isset($cryptKey['publicKey'])) {
-                $signKey = [$cryptKey['publicKey']];
+                $signKey = ArrayHelper::getValue($cryptKey, 'publicKey');
             } else {
-                $signKey = $cryptKey;
+                $signKey = ArrayHelper::getValue($cryptKey, 'signKey');
             }
 
             // 验证签名。

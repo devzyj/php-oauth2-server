@@ -30,8 +30,8 @@ use devzyj\oauth2\server\exceptions\UnauthorizedUserException;
  *     'accessTokenCryptKey' => [
  *         'privateKey' => '/path/to/privateKey', // 访问令牌的私钥路径。
  *         'passphrase' => null, // 访问令牌的私钥密码。没有密码可以为 `null`。
+ *         //'signKey' => 'sign key', // 字符串签名密钥。
  *     ],
- *     //'accessTokenCryptKey' => 'string key', // 字符串密钥。
  *     'refreshTokenDuration' => 2592000, // 更新令牌持续 30 天。
  *     'refreshTokenCryptKey' => [
  *         'ascii' => 'def0000086937b.....', // 使用 `vendor/bin/generate-defuse-key` 生成的字符串。

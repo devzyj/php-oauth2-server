@@ -22,8 +22,8 @@ namespace devzyj\oauth2\server\authorizes;
  *     'accessTokenCryptKey' => [
  *         'privateKey' => '/path/to/privateKey', // 访问令牌的私钥路径。
  *         'passphrase' => null, // 访问令牌的私钥密码。没有密码可以为 `null`。
+ *         //'signKey' => 'sign key', // 字符串签名密钥。
  *     ], 
- *     //'accessTokenCryptKey' => 'string key', // 字符串密钥。
  * ]);
  * ```
  * 

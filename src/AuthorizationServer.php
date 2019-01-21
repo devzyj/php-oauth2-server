@@ -39,10 +39,10 @@ use devzyj\oauth2\server\exceptions\UserDeniedAuthorizeException;
  * // 访问令牌持续 1 小时。
  * $accessTokenDuration = 3600;
  * // 访问令牌密钥。
- * //$accessTokenCryptKey => 'string key', // 字符串密钥。
  * $accessTokenCryptKey => [
  *     'privateKey' => '/path/to/privateKey', // 访问令牌的私钥路径。
  *     'passphrase' => null, // 访问令牌的私钥密码。没有密码可以为 `null`。
+ *     //'signKey' => 'sign key', // 字符串签名密钥。
  * ];
  * // 授权码持续 10 分钟。
  * $authorizationCodeDuration = 600;

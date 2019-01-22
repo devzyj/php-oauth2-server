@@ -92,7 +92,7 @@ trait AccessTokenRepositoryTrait
 
             // 签名密钥。
             if (isset($cryptKey['publicKey'])) {
-                $signKey = ArrayHelper::getValue($cryptKey, 'publicKey');
+                $signKey = [ArrayHelper::getValue($cryptKey, 'publicKey')];
             } else {
                 $signKey = ArrayHelper::getValue($cryptKey, 'signKey');
             }

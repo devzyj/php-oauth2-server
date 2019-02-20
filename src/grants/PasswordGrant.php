@@ -76,14 +76,8 @@ class PasswordGrant extends AbstractGrant
         // 获取正在请求授权的用户。
         $user = $this->getAuthorizeUser($request);
 
-        // 获取默认权限。
-        $defaultScopes = $user->getDefaultScopeEntities();
-        if (!is_array($defaultScopes)) {
-            $defaultScopes = $this->getDefaultScopes();
-        }
-        
         // 获取请求的权限。
-        $requestedScopes = $this->getRequestedScopes($request, $defaultScopes);
+        $requestedScopes = $this->getRequestedScopes($request, $this->getDefaultScopes());
         
         // 确定最终授予的权限列表。
         $finalizedScopes = $this->getScopeRepository()->finalizeEntities($requestedScopes, $this->getIdentifier(), $client, $user);

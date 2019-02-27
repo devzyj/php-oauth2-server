@@ -237,7 +237,7 @@ abstract class AbstractAuthorizeGrant extends BaseObject
         $authorizationCode->setUserEntity($authorizeRequest->getUsertEntity());
         $authorizationCode->setRedirectUri($authorizeRequest->getRedirectUri());
         $authorizationCode->setCodeChallenge($authorizeRequest->getCodeChallenge());
-        $authorizationCode->getCodeChallengeMethod($authorizeRequest->getCodeChallengeMethod());
+        $authorizationCode->setCodeChallengeMethod($authorizeRequest->getCodeChallengeMethod());
         foreach ($authorizeRequest->getScopeEntities() as $scopeEntity) {
             $authorizationCode->addScopeEntity($scopeEntity);
         }

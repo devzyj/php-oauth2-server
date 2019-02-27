@@ -186,3 +186,25 @@ openssl rsa -in private.key -pubout -out public.key
 openssl genrsa -passout pass:_passphrase_ -out private.key 2048
 openssl rsa -in private.key -passin pass:_passphrase_ -pubout -out public.key
 ```
+
+# Usaging Code Challenge
+
+```php
+// 配置授权服务器。
+$authorizationServer = new AuthorizationServer();
+$authorizationServer->addAuthorizeType(new CodeAuthorize([
+    'enableCodeChallenge' => true,
+    'defaultCodeChallengeMethod' => 'S256',
+]));
+$authorizationServer->addGrantType(new AuthorizationCodeGrant([
+    'enableCodeChallenge' => true,
+    'defaultCodeChallengeMethod' => 'S256',
+]));
+
+// 生成 Code Verifier
+$codeVerifier = rtrim(strtr(base64_encode(md5(microtime())), '+/', '-_'), '='); // PHP < 7
+$codeVerifier = rtrim(strtr(base64_encode(random_bytes(32)), '+/', '-_'), '='); // PHP >= 7
+
+// 生成 Code Challenge
+$codeChallenge = rtrim(strtr(base64_encode(hash('sha256', $codeVerifier, true)), '+/', '-_'), '=');
+```

@@ -226,7 +226,7 @@ class AuthorizationCodeGrant extends AbstractGrant
     protected function validateCodeChallenge($request, $authorizationCode)
     {
         if ($this->getEnableCodeChallenge() === true) {
-            $codeVerifier = $this->getRequestBodyParam('code_verifier', $request);
+            $codeVerifier = $this->getRequestBodyParam($request, 'code_verifier');
             if ($codeVerifier === null) {
                 throw new BadRequestException('Missing parameters: `code_verifier` required.');
             }

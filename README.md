@@ -201,7 +201,8 @@ $authorizationServer->addGrantType(new AuthorizationCodeGrant([
 ]));
 
 // 生成 Code Verifier
-$codeVerifier = rtrim(strtr(base64_encode(random_bytes(32)), '+/', '-_'), '=');
+$codeVerifier = rtrim(strtr(base64_encode(md5(microtime())), '+/', '-_'), '='); // PHP < 7
+$codeVerifier = rtrim(strtr(base64_encode(random_bytes(32)), '+/', '-_'), '='); // PHP >= 7
 
 // 生成 Code Challenge
 $codeChallenge = rtrim(strtr(base64_encode(hash('sha256', $codeVerifier, true)), '+/', '-_'), '=');

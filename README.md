@@ -198,7 +198,6 @@ $authorizationServer->addAuthorizeType(new CodeAuthorize([
 ]));
 $authorizationServer->addGrantType(new AuthorizationCodeGrant([
     'enableCodeChallenge' => true,
-    'defaultCodeChallengeMethod' => 'S256',
 ]));
 
 // 生成 Code Verifier
